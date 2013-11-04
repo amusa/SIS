@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement
-public class EnrollmentRequest extends Request implements Serializable{
+public class SubscriptionRequest extends Request implements Serializable{
 
 	/**
 	 * 
@@ -22,11 +22,11 @@ public class EnrollmentRequest extends Request implements Serializable{
 	private String classNumber;
 	
 	
-	public EnrollmentRequest(){
+	public SubscriptionRequest(){
 		
 	}
 	
-	public EnrollmentRequest(String studentId, String classNumber) {
+	public SubscriptionRequest(String studentId, String classNumber) {
 		super();
 		this.studentId = studentId;
 		this.classNumber = classNumber;
@@ -46,6 +46,10 @@ public class EnrollmentRequest extends Request implements Serializable{
 		this.classNumber = classNumber;
 	}
 	
+        @Override
+        public String toString(){
+            return "ClassNumber: "+classNumber + " StudentId: "+ studentId;
+        }
 	
 	
 }

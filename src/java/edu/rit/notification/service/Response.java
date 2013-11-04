@@ -11,6 +11,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Administrator
  */
 @XmlRootElement
-public abstract class Request {
+public abstract class Response {
     
 }

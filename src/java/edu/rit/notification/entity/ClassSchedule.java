@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,6 +20,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.criteria.Fetch;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -76,23 +78,35 @@ public class ClassSchedule implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "classSchedule")
     private List<Enrollment> enrollmentList;
     @ManyToMany
-    @JoinTable(name = "ENROLLMENT",
+    @JoinTable(name = "enrollment",
             joinColumns = {
         @JoinColumn(name = "CLASS_NUMBER")},
             inverseJoinColumns = {
         @JoinColumn(name = "UID")})
     private List<Student> studentEnrollmentList;
+        
     
     @ManyToMany
-    @JoinTable(name = "SUBSCRIPTION",
+    @JoinTable(name = "subscription",
             joinColumns = {
         @JoinColumn(name = "CLASS_NUMBER")},
             inverseJoinColumns = {
         @JoinColumn(name = "UID")})
     private List<Student> studentSubscriptionList;
+    
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "classSchedule")
+//     private List<Subscription> subscriptions;
 
     public ClassSchedule() {
     }
+
+//    public List<Subscription> getSubscriptions() {
+//        return subscriptions;
+//    }
+//
+//    public void setSubscriptions(List<Subscription> subscriptions) {
+//        this.subscriptions = subscriptions;
+//    }
 
     public ClassSchedule(String classNumber) {
         this.classNumber = classNumber;

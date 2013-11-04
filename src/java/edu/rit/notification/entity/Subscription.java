@@ -32,6 +32,9 @@ public class Subscription implements Serializable {
     @JoinColumn(name = "UID", referencedColumnName = "UID", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Student student;
+//    @JoinColumn(name = "CLASS_NUMBER", referencedColumnName = "CLASS_NUMBER", insertable = false, updatable = false)
+//    @ManyToOne(optional = false)
+//    private ClassSchedule classSchedule;
 
     public Subscription() {
     }
@@ -80,6 +83,15 @@ public class Subscription implements Serializable {
         return true;
     }
 
+//    public ClassSchedule getClassSchedule() {
+//        return classSchedule;
+//    }
+//
+//    public void setClassSchedule(ClassSchedule classSchedule) {
+//        this.classSchedule = classSchedule;
+//    }
+
+    
     @Override
     public String toString() {
         return "edu.rit.notification.entity.Subscription[ subscriptionPK=" + subscriptionPK + " ]";

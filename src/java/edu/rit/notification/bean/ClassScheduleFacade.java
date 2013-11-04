@@ -30,10 +30,12 @@ public class ClassScheduleFacade extends AbstractFacade<ClassSchedule> {
     }
     
     public List<ClassSchedule> getClassScheduleForToday(){
+        System.out.println("In ClassScheduleFacade.getClassScheduleForToday()...");
         TypedQuery<ClassSchedule> queryClassScheduleForToday = em.createNamedQuery("ClassSchedule.findTodaysClasses", ClassSchedule.class);
         queryClassScheduleForToday.setParameter("day", getToday());
         List<ClassSchedule> classList = queryClassScheduleForToday.getResultList();
         System.out.println("ClassSchedule list size:" +classList.size());
+        System.out.println("returning from ClassScheduleFacade.getClassScheduleForToday()...");
         return classList;
     }
     
